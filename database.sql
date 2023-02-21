@@ -16,6 +16,7 @@ create table employees (
 
 -- adding data to employees table 
 insert into employees (Employee_no, Name, Phone_number, Job_role, Work_location, Salary, Username, Password, Access_level) values 
+(0, 'Guest', '770-921-3245', 'Employee', 'Hartford', 65000, 'guest@travelers.com', 'dog', 0),
 (1, 'John Smith', '770-921-3235', 'Employee', 'Hartford', 65000, 'jsmith@travelers.com', 'dog', 0),
 (2, 'Jackie Hall', '978-203-4545', 'Manager', 'Grand Rapids', 92000, 'jhall@travelers.com', 'cat', 1),
 (3, 'Ashley Bell', '772-321-8567', 'HR', 'Seattle', 75000, 'abell@travelers.com', 'fish', 2),
