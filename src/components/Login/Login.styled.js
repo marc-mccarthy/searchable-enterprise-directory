@@ -43,7 +43,7 @@ export const TellMeButton = styled.button`
 	background-color: green;
 	border: 1px solid #000000;
 	font-weight: bold;
-	margin-top: 1rem;
+	margin: 2rem;
 	&:active {
 		transform: scale(0.96);
 		box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.25);
