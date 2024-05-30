@@ -36,7 +36,7 @@ function Home() {
 
   useEffect(() => {
     const getEmployees = async () => {
-      const response = await axios.get(`/api/directory/${employee_no}`);
+      const response = await axios.get(`/api/directory`);
       return response.data;
     };
 

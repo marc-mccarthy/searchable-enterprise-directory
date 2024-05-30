@@ -2,7 +2,7 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
-router.get('/:employee_no', (req, res) => {
+router.get('/', (req, res) => {
   pool
     .query(`SELECT * FROM "employees"`)
     .then((response) => {
