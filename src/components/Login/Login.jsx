@@ -1,30 +1,82 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import axios from "axios";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
-  Content,
-  Form,
-  TellMeButton,
-  TellMeSubmit
-} from './Login.styled';
+	Content,
+	Form,
+	Input,
+	Label,
+	TellMe,
+	TellMeButton,
+	TellMeSubmit,
+} from "./Login.styled";
 
 function LoginForm() {
-  const navigate = useNavigate();
+	const [username, setUsername] = useState("");
+	const [password, setPassword] = useState("");
+	const navigate = useNavigate();
 
-  const guest = (event) => {
-    event.preventDefault();
-    navigate(`/home/0`);
-  }; // end guest
+	const checkUser = async () => {
+		if (username && password) {
+			const user = { username, password };
+			const response = await axios.post("/api/login", user);
+			return response.data;
+		} else {
+			alert("Missed a field");
+		}
+	};
 
-  return (
-    <Form>
-      <h2>Login as a Guest</h2>
-      <Content>
-        <TellMeSubmit>
-          <TellMeButton onClick={guest}>Guest</TellMeButton>
-        </TellMeSubmit>
-      </Content>
-    </Form>
-  );
+	const login = (event) => {
+		event.preventDefault();
+		checkUser().then((response) => {
+			if (response.length === 0) {
+				alert("No one goes by that language round here");
+				setUsername("");
+				setPassword("");
+			} else {
+				navigate(`/home/${response[0].employee_no}`);
+			}
+		});
+	}; // end login
+
+	const guest = (event) => {
+		event.preventDefault();
+		navigate(`/home/0`);
+	}; // end guest
+
+	return (
+		<Form >
+			<h3>Login</h3>
+			<Content>
+				<TellMe>
+					<Label htmlFor="username">
+						Username:
+						<Input
+							type="text"
+							name="username"
+							required
+							value={username}
+							onChange={(event) => setUsername(event.target.value)}
+						/>
+					</Label>
+					<Label htmlFor="password">
+						Password:
+						<Input
+							type="password"
+							name="password"
+							required
+							value={password}
+							onChange={(event) => setPassword(event.target.value)}
+						/>
+					</Label>
+				</TellMe>
+				<TellMeSubmit>
+					<TellMeButton onClick={guest}>Guest</TellMeButton>
+					<TellMeButton onClick={login}>Login</TellMeButton>
+				</TellMeSubmit>
+			</Content>
+		</Form>
+	);
 }
 
 export default LoginForm;

@@ -137,7 +137,7 @@ function Home() {
               </DataTable>
               <LogoutButton
                 m={3}
-                onClick={(event) => navigate('/login')}
+                onClick={(event) => navigate('/')}
                 variant='contained'
               >
                 Logout
