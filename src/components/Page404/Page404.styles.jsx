@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Page = styled.div`
   margin: 2rem;
@@ -18,9 +18,9 @@ export const CautionTape = styled.img`
 `;
 
 export const Text404 = styled.h2`
-  font-family: "Patrick Hand", monospace;
+  font-family: 'Patrick Hand', monospace;
 `;
 
 export const Text = styled.h2`
-  font-family: "Patrick Hand", monospace;
+  font-family: 'Patrick Hand', monospace;
 `;

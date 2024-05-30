@@ -1,7 +1,7 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import LoadingBar from "../LoadingBar/LoadingBar";
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import LoadingBar from '../LoadingBar/LoadingBar';
 import {
   ContentWrapper,
   DataCell,
@@ -15,15 +15,15 @@ import {
   LogoutButton,
   PageContainer,
   TopSecretIcon,
-} from "./Home.styles";
-import topSecret from "/images/top-secret.png";
+} from './Home.styles';
+import topSecret from '/images/top-secret.png';
 
 const tableHeaders = [
-  { label: "Name" },
-  { label: "Phone Number" },
-  { label: "Job Role" },
-  { label: "Work Location" },
-  { label: "Salary" },
+  { label: 'Name' },
+  { label: 'Phone Number' },
+  { label: 'Job Role' },
+  { label: 'Work Location' },
+  { label: 'Salary' },
 ];
 
 function Home() {
@@ -32,12 +32,11 @@ function Home() {
   const [employees, setEmployees] = useState([]);
   const [relevantEmployees, setRelevantEmployees] = useState([]);
   const [currentEmployee, setCurrentEmployee] = useState([]);
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
     const getEmployees = async () => {
       const response = await axios.get(`/api/directory/${employee_no}`);
-      console.log(response.data)
       return response.data;
     };
 
@@ -83,11 +82,11 @@ function Home() {
           <Form>
             <ContentWrapper>
               <FilterWrapper>
-                <Label htmlFor="search">
+                <Label htmlFor='search'>
                   Search:
                   <Input
-                    type="text"
-                    name="search"
+                    type='text'
+                    name='search'
                     required
                     value={search}
                     onChange={fastSearch}
@@ -115,19 +114,21 @@ function Home() {
                       <DataCell>{employee.phone_number}</DataCell>
                       <DataCell>{employee.job_role}</DataCell>
                       <DataCell>{employee.work_location}</DataCell>
-                      {currentEmployee[0].employee_no === employee.employee_no ||
-                      currentEmployee[0].access_level - employee.access_level ===
+                      {currentEmployee[0].employee_no ===
+                        employee.employee_no ||
+                      currentEmployee[0].access_level -
+                        employee.access_level ===
                         1 ||
                       currentEmployee[0].access_level === 2 ? (
                         <DataCell>
-                          {employee.salary.toLocaleString("en-US", {
-                            style: "currency",
-                            currency: "USD",
+                          {employee.salary.toLocaleString('en-US', {
+                            style: 'currency',
+                            currency: 'USD',
                           })}
                         </DataCell>
                       ) : (
                         <DataCell>
-                          <TopSecretIcon src={topSecret} alt="top-secret" />
+                          <TopSecretIcon src={topSecret} alt='top-secret' />
                         </DataCell>
                       )}
                     </DataRow>
@@ -136,8 +137,8 @@ function Home() {
               </DataTable>
               <LogoutButton
                 m={3}
-                onClick={(event) => navigate("/login")}
-                variant="contained"
+                onClick={(event) => navigate('/login')}
+                variant='contained'
               >
                 Logout
               </LogoutButton>

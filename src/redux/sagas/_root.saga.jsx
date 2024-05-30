@@ -3,8 +3,5 @@ import getEmployeesSaga from './getEmployees.saga';
 import loginSaga from './login.saga';
 
 export default function* rootSaga() {
-  yield all([
-    getEmployeesSaga(),
-    loginSaga(),
-  ]);
+  yield all([getEmployeesSaga(), loginSaga()]);
 }

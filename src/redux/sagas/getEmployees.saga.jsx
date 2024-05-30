@@ -2,7 +2,7 @@ import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
 function* getEmployeesSaga() {
-	yield takeLatest('GET_EMPLOYEES_SAGA', getEmployees);
+  yield takeLatest('GET_EMPLOYEES_SAGA', getEmployees);
 }
 
 function* getEmployees(action) {

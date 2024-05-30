@@ -3,7 +3,7 @@ const employeesReducer = (state = [], action) => {
     case 'SET_EMPLOYEES':
       return action.payload;
     case 'RESET_FORM':
-      return state = {};
+      return (state = {});
     default:
       return state;
   }

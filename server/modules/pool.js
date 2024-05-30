@@ -7,7 +7,7 @@ const config = {
   port: 5432,
   database: 'searchable_directory',
   max: 10,
-  idleTimeoutMillis: 30000
+  idleTimeoutMillis: 30000,
 };
 
 const pool = new pg.Pool(config);
