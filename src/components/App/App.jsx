@@ -10,7 +10,6 @@ function App() {
     <HashRouter>
       <div className='Main'>
         <Routes>
-          <Route path='/login' element={<Login />} />
           <Route path='/' element={<Login />} />
           <Route path='/home/:employee_no' element={<Home />} />
           <Route path='*' element={<Page404 />} />
