@@ -1,34 +1,14 @@
 const pg = require('pg');
-const url = require('url');
-require('dotenv').config();
 
-let config = {};
-
-if (process.env.DATABASE_URL) {
-  const params = url.parse(process.env.DATABASE_URL);
-  const auth = params.auth.split(':');
-
-  config = {
-    user: auth[0],
-    password: auth[1],
-    host: params.hostname,
-    port: params.port,
-    database: params.pathname.split('/')[1],
-    ssl: { rejectUnauthorized: false },
-    max: 10,
-    idleTimeoutMillis: 30000
-  };
-} else {
-  config = {
-    host: 'localhost',
-    user: 'postgres',
-    password: 'admin',
-    port: 5432,
-    database: 'searchable_directory',
-    max: 10,
-    idleTimeoutMillis: 30000
-  };
-}
+const config = {
+  host: 'localhost',
+  user: 'postgres',
+  password: 'admin',
+  port: 5432,
+  database: 'searchable_directory',
+  max: 10,
+  idleTimeoutMillis: 30000
+};
 
 const pool = new pg.Pool(config);
 

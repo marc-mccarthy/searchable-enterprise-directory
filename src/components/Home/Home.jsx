@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import topSecret from "../../images/top-secret.png";
 import LoadingBar from "../LoadingBar/LoadingBar";
 import SadBar from "../SadBar/SadBar";
 import {
@@ -18,6 +17,7 @@ import {
   PageContainer,
   TopSecretIcon,
 } from "./Home.styles";
+import topSecret from "/images/top-secret.png";
 
 const tableHeaders = [
   { label: "Name" },
@@ -37,7 +37,8 @@ function Home() {
 
   useEffect(() => {
     const getEmployees = async () => {
-      const response = await axios.get(`/directory/${employee_no}`);
+      const response = await axios.get(`/api/directory/${employee_no}`);
+      console.log(response.data)
       return response.data;
     };
 

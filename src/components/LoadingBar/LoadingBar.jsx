@@ -1,6 +1,6 @@
 import React from "react";
-import { Loading } from "./LoadingBar.styles";
-import loadingBar from "../../images/loading-bar.gif";
+import { Loading } from "./LoadingBar.styles.jsx";
+import loadingBar from "/images/loading-bar.gif";
 
 function LoadingBar() {
   return (
