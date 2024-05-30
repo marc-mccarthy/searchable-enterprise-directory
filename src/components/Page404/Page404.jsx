@@ -1,6 +1,6 @@
 import React from "react";
-import { Page, CautionTape, Text, Text404 } from "./Page404.styles.js";
-import cautionTape from "../../images/caution-tape.jpg";
+import { CautionTape, Page, Text, Text404 } from "./Page404.styles.js";
+import cautionTape from "/images/caution-tape.jpg";
 
 function Page404() {
   return (

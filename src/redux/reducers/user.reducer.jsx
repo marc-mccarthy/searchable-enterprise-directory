@@ -1,4 +1,3 @@
-// Storage Reducer: will be fired on "SET_USER" actions
 const userReducer = (state = [], action) => {
   switch (action.type) {
     case "SET_USER":

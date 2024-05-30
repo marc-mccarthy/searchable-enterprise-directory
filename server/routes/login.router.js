@@ -2,7 +2,6 @@ const express = require("express");
 const pool = require("../modules/pool");
 const router = express.Router();
 
-// LOGIN current user
 router.post("/", (req, res) => {
   pool
     .query(`SELECT * FROM "employees" WHERE Username = $1 AND Password = $2`, [

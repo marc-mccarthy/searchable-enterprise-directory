@@ -1,6 +1,6 @@
 import React from "react";
 import { Loading } from "./SadBar.styles";
-import sadBar from "../../images/sad-bar.gif";
+import sadBar from "/images/sad-bar.gif";
 
 function SadBar() {
   return (
