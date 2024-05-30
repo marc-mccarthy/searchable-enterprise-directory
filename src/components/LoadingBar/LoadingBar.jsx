@@ -1,11 +1,20 @@
-import React from "react";
 import { Loading } from "./LoadingBar.styles.jsx";
 import loadingBar from "/images/loading-bar.gif";
+import sadBar from "/images/sad-bar.gif";
 
-function LoadingBar() {
+const LoadingBar = ({ isEmpty }) => {
   return (
     <Loading>
-      <img src={loadingBar} alt="loading" />
+      {isEmpty ? (
+        <>
+          <img src={sadBar} alt="sad" />
+          <span role="img" aria-label="sad emoji">
+            😢
+          </span>
+        </>
+      ) : (
+        <img src={loadingBar} alt="loading" />
+      )}
     </Loading>
   );
 }

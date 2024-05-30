@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import LoadingBar from "../LoadingBar/LoadingBar";
-import SadBar from "../SadBar/SadBar";
 import {
   ContentWrapper,
   DataCell,
@@ -74,7 +73,7 @@ function Home() {
   return (
     <div>
       {!currentEmployee[0] ? (
-        <LoadingBar />
+        <LoadingBar isEmpty={false} />
       ) : (
         <PageContainer>
           <h2>
@@ -98,7 +97,7 @@ function Home() {
             </ContentWrapper>
           </Form>
           {relevantEmployees.length === 0 ? (
-            <SadBar />
+            <LoadingBar isEmpty={true} />
           ) : (
             <ContentWrapper>
               <DataTable>
